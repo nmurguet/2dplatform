@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: 97
   right: 100
+  down: 115
   jump: 119
   moveSpeed: 5
   jumpForce: 5
@@ -297,6 +298,7 @@ MonoBehaviour:
   wallSensor: {fileID: 597163351}
   isTouchingWall: 0
   wallSensorRadius: 0.1
+  crouch: 0
 --- !u!1 &597163350
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +339,7 @@ GameObject:
   - component: {fileID: 884644388}
   - component: {fileID: 884644387}
   - component: {fileID: 884644386}
+  - component: {fileID: 884644391}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -413,6 +416,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &884644391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 884644385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee837ff0126f3c74c89719d398c37589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 406406396}
+  speed: 0.08
+  following: 0
+  offset: {x: 0, y: 0.12, z: 0}
+  player: {fileID: 0}
 --- !u!1 &995234836
 GameObject:
   m_ObjectHideFlags: 0

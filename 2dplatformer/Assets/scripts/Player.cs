@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
 	public KeyCode left; 
 	public KeyCode right; 
+	public KeyCode down; 
 	public KeyCode jump; 
 
 	private Rigidbody2D rb; 
@@ -25,11 +26,13 @@ public class Player : MonoBehaviour {
 	public bool isTouchingWall;
 	public float wallSensorRadius; 
 
+	public bool crouch; 
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> (); 
 		anim = GetComponent<Animator> (); 
+		crouch = false; 
 
 		
 	}
@@ -43,6 +46,18 @@ public class Player : MonoBehaviour {
 		anim.SetFloat ("Speed", Mathf.Abs (rb.velocity.x));
 		anim.SetBool ("Grounded", isGrounded);
 		anim.SetFloat ("YSpeed", rb.velocity.y);
+		anim.SetBool ("duck", crouch);
+
+		if (Input.GetKey (down) && Mathf.Abs (rb.velocity.x) < 0.1f && Mathf.Abs (rb.velocity.y) < 0.1f) {
+			crouch = true;
+		} else
+			crouch = false; 
+
+
+
+
+
+
 
 		isTouchingWall = Physics2D.OverlapCircle (wallSensor.position, wallSensorRadius, whatIsGround);
 		isGrounded = Physics2D.OverlapCircle (groundCheckPoint.position, groundCheckRadius, whatIsGround);
